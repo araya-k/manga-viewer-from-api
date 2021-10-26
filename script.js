@@ -1,10 +1,13 @@
 // Get all manga list API URL
 const API_URL = 'https://manga-scrapper-for-asura-scans-website.p.rapidapi.com/'
 
-// RapidAPI request headers
-const REQUEST_HEADERS = {
-    "x-rapidapi-host": "manga-scrapper-for-asura-scans-website.p.rapidapi.com",
-    "x-rapidapi-key": "6e6744b5dcmshf6d3910e25d2d61p16e159jsn03f75d031805"
+// RapidAPI request options
+const REQUEST_OPTIONS = {
+    "method": "GET",
+    "headers": {
+        "x-rapidapi-host": "manga-scrapper-for-asura-scans-website.p.rapidapi.com",
+        "x-rapidapi-key": "6e6744b5dcmshf6d3910e25d2d61p16e159jsn03f75d031805"
+    }
 }
 
 // Button click handler
@@ -24,7 +27,7 @@ const fetchChapterImages = (mangaTitle, chapterTitle, callback) => {
     const chapterTitleFormatted = encodeURIComponent(chapterTitle)
 
     // GET request to the server
-    fetch(`${API_URL}${mangaTitleFormatted}/${chapterTitleFormatted}`, {"method": "GET", "headers": REQUEST_HEADERS})
+    fetch(`${API_URL}${mangaTitleFormatted}/${chapterTitleFormatted}`, REQUEST_OPTIONS)
         // Return the data from the server
         .then(response => {
             return response.json()
