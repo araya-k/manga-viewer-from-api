@@ -33,16 +33,16 @@ body {
 }
 
 .h1 {
-    width: 100%;
     margin-bottom: 1rem;
-    font-size: 3.6rem;
+    font-size: min(max(2.73rem, calc(2.73rem + ((1vw - 0.32rem) * 1.4625))), 3.9rem);
+    line-height: min(max(3.54rem, calc(3.54rem + ((1vw - 0.32rem) * 0.95))), 4.3rem);
+    font-weight: 700;
 }
 
 .btn {
     cursor: pointer;
     padding: 1rem;
     margin-right: 1rem;
-    font-size: 1.8rem;
     font-weight: 600;
     letter-spacing: 0.02rem;
     border: none;
@@ -65,4 +65,10 @@ body {
 
 img {
     width: 100%;
+}
+
+@media screen and (max-width: 991px) {
+    body {
+        width: 100%
+    }
 }
