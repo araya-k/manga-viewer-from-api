@@ -17,7 +17,7 @@ const onClickFetchChapterImages = () => {
     const chapterTitle = document.getElementById('chapter-title').textContent
 
     // Calling back the API and passing the result with displayResult as a callback function
-    return fetchChapterImages(mangaTitle, chapterTitle, displayResult)
+    return fetchChapterImages(mangaTitle, chapterTitle, displayChapter)
 }
 
 // Call the API to get manga chapter list data
@@ -42,9 +42,12 @@ const fetchChapterImages = (mangaTitle, chapterTitle, callback) => {
 }
 
 // Make the fetched data displayed in front end
-const displayResult = result => {
-    result.forEach(item => {
-        const template = `<img src="${item}">`
+const displayChapter = jsonData => {
+    jsonData.forEach(item => {
+        const mangaTitle = document.getElementById('manga-title').textContent
+        const chapterTitle = document.getElementById('chapter-title').textContent
+        const itemName = item.split('/').pop()
+        const template = `<img src="${item}" alt="${mangaTitle} - ${chapterTitle} - ${itemName}">`
         document.getElementById('template').innerHTML += template
     })
 }
